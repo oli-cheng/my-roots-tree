@@ -190,23 +190,40 @@
   
   /* Prose styling for markdown */
   .prose-heritage {
-    @apply prose prose-lg max-w-none;
     font-family: var(--font-sans);
+    @apply max-w-none text-base leading-relaxed;
   }
   
   .prose-heritage h1,
   .prose-heritage h2,
   .prose-heritage h3 {
     font-family: var(--font-serif);
-    @apply text-foreground;
+    @apply text-foreground font-semibold mt-6 mb-3;
   }
   
+  .prose-heritage h1 { @apply text-2xl; }
+  .prose-heritage h2 { @apply text-xl; }
+  .prose-heritage h3 { @apply text-lg; }
+  
   .prose-heritage p {
-    @apply text-foreground/90;
+    @apply text-foreground/90 mb-4;
   }
   
   .prose-heritage a {
-    @apply text-primary hover:text-primary/80;
+    @apply text-primary hover:text-primary/80 underline;
+  }
+  
+  .prose-heritage ul,
+  .prose-heritage ol {
+    @apply pl-6 mb-4;
+  }
+  
+  .prose-heritage li {
+    @apply mb-1;
+  }
+  
+  .prose-heritage blockquote {
+    @apply border-l-4 border-border pl-4 italic text-muted-foreground my-4;
   }
 }
 
