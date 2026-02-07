@@ -156,7 +156,7 @@ export function FamilyTreeView({
       id: rel.id,
       source: rel.from_person_id,
       target: rel.to_person_id,
-      type: 'smoothstep',
+      type: 'straight',
       className: rel.type === 'spouse' || rel.type === 'partner' ? 'spouse' : '',
       markerEnd: {
         type: MarkerType.ArrowClosed,
