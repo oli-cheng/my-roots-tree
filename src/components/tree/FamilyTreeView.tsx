@@ -152,22 +152,26 @@ export function FamilyTreeView({
     });
 
     // Create edges
+    const isHorizontal = (type: string) => type === 'spouse' || type === 'partner';
+
     const edges: Edge[] = relationships.map(rel => ({
       id: rel.id,
       source: rel.from_person_id,
       target: rel.to_person_id,
-      type: 'straight',
-      className: rel.type === 'spouse' || rel.type === 'partner' ? 'spouse' : '',
+      type: 'smoothstep',
+      sourceHandle: isHorizontal(rel.type) ? 'right' : 'bottom',
+      targetHandle: isHorizontal(rel.type) ? 'left' : 'top',
+      className: isHorizontal(rel.type) ? 'spouse' : '',
       markerEnd: {
         type: MarkerType.ArrowClosed,
         color: 'hsl(var(--tree-edge))',
       },
       style: {
         strokeWidth: 2,
-        stroke: rel.type === 'spouse' || rel.type === 'partner' 
+        stroke: isHorizontal(rel.type)
           ? 'hsl(var(--tree-edge-spouse))' 
           : 'hsl(var(--tree-edge))',
-        strokeDasharray: rel.type === 'spouse' || rel.type === 'partner' ? '5 5' : undefined,
+        strokeDasharray: isHorizontal(rel.type) ? '5 5' : undefined,
       },
     }));
 
