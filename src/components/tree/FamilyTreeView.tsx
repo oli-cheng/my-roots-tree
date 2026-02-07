@@ -168,8 +168,8 @@ export function FamilyTreeView({
         const sourcePos = positionMap.get(rel.from_person_id);
         const targetPos = positionMap.get(rel.to_person_id);
         const sourceIsLeft = (sourcePos?.x ?? 0) <= (targetPos?.x ?? 0);
-        sourceHandle = sourceIsLeft ? 'right' : 'left';
-        targetHandle = sourceIsLeft ? 'left' : 'right';
+        sourceHandle = sourceIsLeft ? 'right-source' : 'left-source';
+        targetHandle = sourceIsLeft ? 'left-target' : 'right-target';
       }
 
       return {

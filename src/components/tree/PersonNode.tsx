@@ -20,6 +20,7 @@ export const PersonNode = memo(function PersonNode({ data }: PersonNodeProps) {
 
   return (
     <>
+      {/* Top/Bottom for parent-child */}
       <Handle
         type="target"
         position={Position.Top}
@@ -32,16 +33,30 @@ export const PersonNode = memo(function PersonNode({ data }: PersonNodeProps) {
         id="bottom"
         className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
       />
+      {/* Right side: both source and target */}
       <Handle
         type="source"
         position={Position.Right}
-        id="right"
+        id="right-source"
+        className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
+      />
+      <Handle
+        type="target"
+        position={Position.Right}
+        id="right-target"
+        className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
+      />
+      {/* Left side: both source and target */}
+      <Handle
+        type="source"
+        position={Position.Left}
+        id="left-source"
         className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
       />
       <Handle
         type="target"
         position={Position.Left}
-        id="left"
+        id="left-target"
         className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
       />
       <div
