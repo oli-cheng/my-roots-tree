@@ -23,6 +23,25 @@ export const PersonNode = memo(function PersonNode({ data }: PersonNodeProps) {
       <Handle
         type="target"
         position={Position.Top}
+        id="top"
+        className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
+      />
+      <Handle
+        type="source"
+        position={Position.Bottom}
+        id="bottom"
+        className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
+      />
+      <Handle
+        type="source"
+        position={Position.Right}
+        id="right"
+        className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
+      />
+      <Handle
+        type="target"
+        position={Position.Left}
+        id="left"
         className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
       />
       <div
@@ -62,11 +81,6 @@ export const PersonNode = memo(function PersonNode({ data }: PersonNodeProps) {
           </div>
         </div>
       </div>
-      <Handle
-        type="source"
-        position={Position.Bottom}
-        className="!h-2 !w-2 !border-2 !border-tree-edge !bg-background"
-      />
     </>
   );
 });
