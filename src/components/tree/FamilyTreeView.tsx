@@ -151,29 +151,48 @@ export function FamilyTreeView({
       });
     });
 
+    // Build a position lookup for handle selection
+    const positionMap = new Map<string, { x: number; y: number }>();
+    nodes.forEach(n => positionMap.set(n.id, n.position));
+
     // Create edges
     const isHorizontal = (type: string) => type === 'spouse' || type === 'partner';
 
-    const edges: Edge[] = relationships.map(rel => ({
-      id: rel.id,
-      source: rel.from_person_id,
-      target: rel.to_person_id,
-      type: 'smoothstep',
-      sourceHandle: isHorizontal(rel.type) ? 'right' : 'bottom',
-      targetHandle: isHorizontal(rel.type) ? 'left' : 'top',
-      className: isHorizontal(rel.type) ? 'spouse' : '',
-      markerEnd: {
-        type: MarkerType.ArrowClosed,
-        color: 'hsl(var(--tree-edge))',
-      },
-      style: {
-        strokeWidth: 2,
-        stroke: isHorizontal(rel.type)
-          ? 'hsl(var(--tree-edge-spouse))' 
-          : 'hsl(var(--tree-edge))',
-        strokeDasharray: isHorizontal(rel.type) ? '5 5' : undefined,
-      },
-    }));
+    const edges: Edge[] = relationships.map(rel => {
+      const horizontal = isHorizontal(rel.type);
+
+      let sourceHandle = 'bottom';
+      let targetHandle = 'top';
+
+      if (horizontal) {
+        const sourcePos = positionMap.get(rel.from_person_id);
+        const targetPos = positionMap.get(rel.to_person_id);
+        const sourceIsLeft = (sourcePos?.x ?? 0) <= (targetPos?.x ?? 0);
+        sourceHandle = sourceIsLeft ? 'right' : 'left';
+        targetHandle = sourceIsLeft ? 'left' : 'right';
+      }
+
+      return {
+        id: rel.id,
+        source: rel.from_person_id,
+        target: rel.to_person_id,
+        type: 'smoothstep',
+        sourceHandle,
+        targetHandle,
+        className: horizontal ? 'spouse' : '',
+        markerEnd: {
+          type: MarkerType.ArrowClosed,
+          color: 'hsl(var(--tree-edge))',
+        },
+        style: {
+          strokeWidth: 2,
+          stroke: horizontal
+            ? 'hsl(var(--tree-edge-spouse))' 
+            : 'hsl(var(--tree-edge))',
+          strokeDasharray: horizontal ? '5 5' : undefined,
+        },
+      };
+    });
 
     return { nodes, edges };
   }, [people, relationships, rootPersonId, handleNodeClick, selectedPerson]);
