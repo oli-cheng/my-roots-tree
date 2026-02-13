@@ -180,9 +180,12 @@ export function FamilyTreeView({
         sourceHandle,
         targetHandle,
         className: horizontal ? 'spouse' : '',
+        markerStart: horizontal
+          ? { type: MarkerType.ArrowClosed, color: 'hsl(var(--tree-edge-spouse))' }
+          : undefined,
         markerEnd: {
           type: MarkerType.ArrowClosed,
-          color: 'hsl(var(--tree-edge))',
+          color: horizontal ? 'hsl(var(--tree-edge-spouse))' : 'hsl(var(--tree-edge))',
         },
         style: {
           strokeWidth: 2,

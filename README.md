@@ -1,73 +1,79 @@
-# Welcome to your Lovable project
+# 🌳 My Roots — Preserve Your Family's Legacy
 
-## Project info
+**My Roots** is a modern, interactive family tree builder that helps you document, visualize, and share your family history with loved ones.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+[![Live App](https://img.shields.io/badge/Live-my--roots--tree.lovable.app-brightgreen)](https://my-roots-tree.lovable.app)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Why My Roots?
 
-**Use Lovable**
+Every family has a story worth preserving. **My Roots** makes it effortless to map out generations of relationships, capture life events, and share your heritage — all from a beautiful, intuitive interface.
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+### ✨ Key Features
 
-Changes made via Lovable will be committed automatically to this repo.
+- **Interactive Family Tree Graph** — Drag-and-drop nodes with smart connectors that automatically route parent-child and spousal relationships
+- **Rich Person Profiles** — Record names, birth/death dates, bios, photos, and life events for every family member
+- **Flexible Relationships** — Support for parent-child, spouse, partner, adoptive, and guardian connections
+- **Privacy Controls** — Keep your tree private, share via unlisted link, or publish publicly
+- **Collaborative Editing** — Invite family members as owners, editors, or viewers
+- **Responsive Design** — Works beautifully on desktop and mobile
 
-**Use your preferred IDE**
+### 🎯 Who It's For
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+- Genealogy enthusiasts documenting their ancestry
+- Families wanting to preserve stories for future generations
+- Anyone curious about mapping their roots
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+---
 
-Follow these steps:
+## Tech Stack
+
+| Layer | Technology |
+|-------|-----------|
+| **Frontend** | React · TypeScript · Vite |
+| **UI** | Tailwind CSS · shadcn/ui · Radix Primitives |
+| **Graph** | React Flow (`@xyflow/react`) |
+| **Backend** | Lovable Cloud (auth, database, storage) |
+| **State** | TanStack React Query |
+
+---
+
+## Getting Started
+
+### Use Lovable (Recommended)
+
+Visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting — changes deploy automatically.
+
+### Run Locally
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
 
-# Step 2: Navigate to the project directory.
+# Navigate to the project
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
+# Install dependencies
 npm i
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+> Requires Node.js — install via [nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+---
 
-**Use GitHub Codespaces**
+## Deployment
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+Open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) → **Share** → **Publish**.
 
-## What technologies are used for this project?
+Custom domains are supported — go to **Project → Settings → Domains → Connect Domain**.  
+[Learn more →](https://docs.lovable.dev/features/custom-domain#custom-domain)
 
-This project is built with:
+---
 
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
+## License
 
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+Built with ❤️ using [Lovable](https://lovable.dev).
